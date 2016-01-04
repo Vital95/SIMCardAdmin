@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <FlowDirection x:Key="LangDirection">LeftToRight</FlowDirection>
+    <sys:String x:Key="LangButtonApply">Apply</sys:String>
+    <sys:String x:Key="LangButtonCancel">Cancel</sys:String>
+    <sys:String x:Key="LangButtonAddSIMCard">Add SIM Card</sys:String>
+    <sys:String x:Key="LangButtonDelete">Delete</sys:String>
+    <sys:String x:Key="LangButtonRename">Rename</sys:String>
+    <sys:String x:Key="LangGroupBoxServerFiles">SIM Cards</sys:String>
+    <sys:String x:Key="LangGroupBoxYourFiles">Batches</sys:String>
+    <sys:String x:Key="LangTextAdd">Add</sys:String>
+    <sys:String x:Key="LangTextEdit">Edit</sys:String>
+    <sys:String x:Key="LangTextDelete">Delete</sys:String>
+    <sys:String x:Key="LangTextRefresh">Refresh</sys:String>
+    <sys:String x:Key="LangTextAddSIM">Add SIM</sys:String>
+    <sys:String x:Key="LangTextEditSIM">Edit SIM</sys:String>
+    <sys:String x:Key="LangTextDeleteSIM">Delete SIM</sys:String>
+    <sys:String x:Key="LangTextInfo">SIM Info</sys:String>
+    <sys:String x:Key="LangTitlePlusFTP">SIM Card - Admin</sys:String>
+    <sys:String x:Key="LangTitleRenaming">Renaming</sys:String>
+    <sys:String x:Key="LangWatermarkSearch">Search</sys:String>
+    <sys:String x:Key="LangMinimize">Minimize</sys:String>
+    <sys:String x:Key="LangMaximize">Maximize</sys:String>
+    <sys:String x:Key="LangClose">Close</sys:String>
+</ResourceDictionary>
