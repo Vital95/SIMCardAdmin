@@ -2,9 +2,9 @@
 using SIMCardAdmin.Core.Database;
 using SIMCardAdmin.Metro.ViewModels.SIMCard;
 using System;
+using System.Data;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace SIMCardAdmin.Metro.Windows
@@ -15,6 +15,7 @@ namespace SIMCardAdmin.Metro.Windows
     public partial class MainWindow : MetroWindow
     {
         #region Private fields
+
         private const string applicationName = "SIM Card Admin";
         private static readonly Version applicationVersion = Assembly.GetExecutingAssembly().GetName().Version;
         private static readonly string applicationVersionName = string.Format("v{0}.{1}", applicationVersion.Major, applicationVersion.Minor, applicationVersion.Build, applicationVersion.Revision);
@@ -23,9 +24,8 @@ namespace SIMCardAdmin.Metro.Windows
         private bool _isClosing;
         private WindowState _lastState;
         private DatabaseContext db = new DatabaseContext();
+
         #endregion
-        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
-        public static extern short GetKeyState(int keyCode);
 
         public MainWindow()
         {
@@ -51,6 +51,15 @@ namespace SIMCardAdmin.Metro.Windows
 
         }
 
+        #endregion
+
+        #region Private helpers
+
+        private void UpdateTitle()
+        {
+            Title = string.Format("{0} ({1})", applicationName, applicationVersionName);
+        }
+
         private void PopulateList()
         {
             SIMCardListView viewModel = new SIMCardListView();
@@ -68,15 +77,6 @@ namespace SIMCardAdmin.Metro.Windows
             }).ToList();
 
             SIMCardList.DataContext = viewModel.SIMCards;
-        }
-
-        #endregion
-
-        #region Private helpers
-
-        private void UpdateTitle()
-        {
-            Title = string.Format("{0} ({1})", applicationName, applicationVersionName);
         }
 
         #endregion

@@ -138,18 +138,25 @@
                                 <TextBox x:Name="TextBoxHostSearch" BorderThickness="0" Margin="0" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.SelectAllOnFocus="True" Controls:TextBoxHelper.Watermark="{DynamicResource LangWatermarkSearch}" FlowDirection="LeftToRight" IsEnabled="{Binding Path=IsEnabled, ElementName=ServerList}" />
                             </Border>
                         </Grid>
-                        <Border Grid.Row="2" BorderBrush="#FFE3E3E3" BorderThickness="1" CornerRadius="2" Margin="{DynamicResource Thickness2}">
-                            <ListView x:Name="SIMCardList" IsEnabled="False" AllowDrop="True" SelectionMode="Extended" BorderThickness="0" TextSearch.TextPath="ICCID" ItemTemplate="{DynamicResource SIMCardTemplate}" ItemsSource="{Binding Path=Table}">
-                                <ListView.View>
-                                    <GridView>
-                                        <GridViewColumn Header="Tracking Code" DisplayMemberBinding="{Binding Path=TrackingCode}"/>
-                                        <GridViewColumn Header="Network" DisplayMemberBinding="{Binding Path=Network}"/>
-                                        <GridViewColumn Header="ICCID" DisplayMemberBinding="{Binding Path=ICCID}"/>
-                                        <GridViewColumn Header="MSISDN" DisplayMemberBinding="{Binding Path=MSISDN}"/>
-                                        <GridViewColumn Header="Group" DisplayMemberBinding="{Binding Path=Group}"/>
-                                    </GridView>
-                                </ListView.View>
-                            </ListView>
+                        <Border Grid.Row="2" RenderOptions.ClearTypeHint="Enabled" TextOptions.TextFormattingMode="Display" BorderBrush="#FFE3E3E3" BorderThickness="1" CornerRadius="2" Margin="{DynamicResource Thickness2}">
+                            <DataGrid x:Name="SIMCardList" 
+                                      IsEnabled="True" 
+                                      AllowDrop="True" 
+                                      SelectionMode="Extended" 
+                                      BorderThickness="0" 
+                                      TextSearch.TextPath="ICCID" 
+                                      ItemsSource="{Binding}">
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}" />
+                                    <DataGridTextColumn Binding="{Binding Path=TrackingCode}" Header="Tracking Code" Width="Auto"/>
+                                    <DataGridTextColumn Binding="{Binding Path=NetworkName}" Header="Network"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ICCID}" Header="ICCID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=MSISDN}" Header="MSISDN"/>
+                                    <DataGridTextColumn Binding="{Binding Path=Group}" Header="Group"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </Border>
                     </Grid>
                 </GroupBox>
